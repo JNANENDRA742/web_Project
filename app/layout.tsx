@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Serif_Display } from "next/font/google";
+
 import "./globals.css";
+const dmSerif = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: "400", // DM Serif has only one weight
+  display: "swap",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,16 +26,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={dmSerif.className}>
         {children}
       </body>
     </html>
   );
 }
+
