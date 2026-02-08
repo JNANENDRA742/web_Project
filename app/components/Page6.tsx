@@ -5,16 +5,19 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "Do you take insurance?",
-    answer: "Answer goes here.",
+    question: "Do you offer in-person or online therapy?",
+    answer:
+      "I offer both in-person therapy from my Santa Monica office and secure telehealth sessions for adults located in California. This allows flexibility while maintaining continuity of care.",
   },
   {
-    question: "What are your rates?",
-    answer: "Answer goes here.",
+    question: "What issues do you specialize in?",
+    answer:
+      "My work focuses on anxiety, panic, trauma, and burnout. I also support clients dealing with perfectionism, chronic stress, and the lingering impact of earlier life experiences on relationships and self-confidence.",
   },
   {
-    question: "Do you have any openings?",
-    answer: "Answer goes here.",
+    question: "What is your approach to therapy?",
+    answer:
+      "I take a warm, collaborative, and grounded approach. I integrate evidence-based methods such as CBT, EMDR, mindfulness-based practices, and body-oriented techniques, while pacing the work carefully to prioritize safety and emotional regulation.",
   },
 ];
 
@@ -22,14 +25,15 @@ export default function Page6() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-[#fbf7f2] py-12 font-gopher">
+    <section className="bg-[#E8EDF3] py-12 font-gopher">
       <div className="max-w-7xl mx-auto px-10 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+        
         {/* LEFT IMAGE */}
         <div className="flex justify-center">
           <div className="relative w-[420px] h-[620px] overflow-hidden rounded-t-[1000px]">
             <Image
-              src="/image9.webp"
-              alt="Decorative florals"
+              src="/page6.jpeg"
+              alt="Calm therapy office in Santa Monica"
               fill
               className="object-cover"
             />
@@ -38,34 +42,36 @@ export default function Page6() {
 
         {/* RIGHT FAQ */}
         <div>
-          <h2 className="text-4xl font-normal text-[#2f3b1f] mb-12 tracking-tight">
+          <h2 className="text-4xl font-normal text-[#2C4F7C] mb-12 tracking-tight">
             FAQs
           </h2>
 
-          <div className="border-t border-[#2f3b1f]/60">
+          <div className="border-t border-[#2C4F7C]/40">
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
 
               return (
-                <div key={index} className="border-b border-[#2f3b1f]/60 py-6">
+                <div
+                  key={index}
+                  className="border-b border-[#2C4F7C]/40 py-6"
+                >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     className="w-full flex items-center justify-between text-left"
                   >
-                    {/* LEFT: icon + question together */}
                     <div className="flex items-center gap-4">
-                      <span className="text-2xl font-light leading-none">
+                      <span className="text-2xl font-light leading-none text-[#2C4F7C]">
                         {isOpen ? "−" : "+"}
                       </span>
 
-                      <span className="text-xl text-[#2f3b1f] font-normal">
+                      <span className="text-xl text-[#2C4F7C] font-normal">
                         {faq.question}
                       </span>
                     </div>
                   </button>
 
                   {isOpen && (
-                    <p className="mt-4 max-w-md text-[#2f3b1f]/90 leading-relaxed tracking-[0.02em]">
+                    <p className="mt-4 max-w-md text-[#2C4F7C] leading-relaxed tracking-[0.02em]">
                       {faq.answer}
                     </p>
                   )}
@@ -74,6 +80,7 @@ export default function Page6() {
             })}
           </div>
         </div>
+
       </div>
     </section>
   );
